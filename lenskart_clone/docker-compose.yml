@@ -1,0 +1,35 @@
+version: "3.3"
+
+services:
+
+  mongo:
+    image: mongo:4.4
+    container_name: lenskart_mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  backend:
+    build: ./Backend
+    container_name: lenskart_backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongo
+    environment:
+      mongoURL: mongodb://mongo:27017/lenskart
+      port: 5000
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: lenskart_frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo_data:

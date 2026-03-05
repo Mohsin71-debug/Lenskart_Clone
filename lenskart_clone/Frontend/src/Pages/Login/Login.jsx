@@ -60,7 +60,7 @@ const Login = (props) => {
       setinCorrect(false);
       if (loginData.email !== "" && loginData.password !== "") {
         const res = await fetch(
-          "https://harlequin-fawn-tutu.cyclic.app/user/login",
+          "http://localhost:5000/user/login",
           {
             method: "POST",
             body: JSON.stringify(loginData),
@@ -72,7 +72,7 @@ const Login = (props) => {
         let data = await res.json();
         if (res) {
           const credential = await fetch(
-            "https://harlequin-fawn-tutu.cyclic.app/user"
+            "http://localhost:5000/user"
           );
           let cred = await credential.json();
           localStorage.setItem("token", data.token);

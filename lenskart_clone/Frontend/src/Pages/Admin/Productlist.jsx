@@ -38,7 +38,7 @@ const Productlist = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://harlequin-fawn-tutu.cyclic.app/product?sort=${sort}&productRefLink=${productref}&gender=${gender}&productType=${filter}&shape=${shape}&style=${style}&page=${page}`
+        `http://localhost:5000/product?sort=${sort}&productRefLink=${productref}&gender=${gender}&productType=${filter}&shape=${shape}&style=${style}&page=${page}`
       );
       const postData = await response.json();
       setData(postData);
@@ -57,7 +57,7 @@ const Productlist = () => {
   const handleDelete = async (id) => {
     try {
       const response = await fetch(
-        `https://harlequin-fawn-tutu.cyclic.app/product/${id}`,
+        `http://localhost:5000/product/${id}`,
         {
           method: "DELETE"
         }

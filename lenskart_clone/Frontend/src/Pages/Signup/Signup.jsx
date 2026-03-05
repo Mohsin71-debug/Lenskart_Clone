@@ -113,7 +113,7 @@ const Signup = () => {
   const getData = (body) => {
     setLoading(true);
 
-    fetch(`https://harlequin-fawn-tutu.cyclic.app/user`)
+    fetch(`http://localhost:5000/user`)
       .then((res) => res.json())
       .then((res) => {
         res.map((el) => {
@@ -127,7 +127,7 @@ const Signup = () => {
       })
       .then(() => {
         if (flag === false) {
-          fetch(`https://harlequin-fawn-tutu.cyclic.app/user/register`, {
+          fetch(`http://localhost:5000/user/register`, {
             method: "POST",
             body: JSON.stringify(body),
             headers: {

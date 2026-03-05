@@ -36,7 +36,7 @@ const EditProduct = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch(`https://harlequin-fawn-tutu.cyclic.app/product/${id}`, {
+    fetch(`http://localhost:5000/product/${id}`, {
       headers: {
         Authorization: localStorage.getItem("token")
       }
@@ -86,7 +86,7 @@ const EditProduct = () => {
       };
 
       const response = await fetch(
-        `https://harlequin-fawn-tutu.cyclic.app/product/${id}`,
+        `http://localhost:5000/product/${id}`,
         {
           method: "PATCH",
           headers: {
